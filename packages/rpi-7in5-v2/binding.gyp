@@ -7,12 +7,13 @@
                 "-Wextra"
             ],
             "cflags_cc!": [ "-fno-exceptions" ],
-            "sources": [ 
+            "sources": [
                 "./src/c/EPD_7in5_V2_node.cc",
                 "./src/c/DEV_Config.c",
                 "./src/c/EPD_7in5_V2.c",
                 "./src/c/dev_hardware_SPI.c",
-                "./src/c/RPI_sysfs_gpio.c"
+                "./src/c/sysfs_gpio.c",
+                "./src/c/RPI_gpiod.c"
             ],
             "defines": [
                 "RPI",
@@ -22,6 +23,7 @@
                 "<!@(node -p \"require('node-addon-api').include\")"
             ],
             "libraries": [
+                "-lgpiod",
                 "-lm"
             ]
         }
